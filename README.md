@@ -39,6 +39,25 @@ See `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\ExampleComponentViewHelper` as
 *The development and the public-releases of this package is generously sponsored
 by our employer http://www.sitegeist.de.*
 
+### Installation
+
+To install this package add the following configuttaion to the `composer.json` and run `composer update`.
+ 
+```json
+{
+    "repositories": [
+        { "type": "vcs", "url": "ssh://git@git.sitegeist.de:40022/sitegeist/Sitegeist.Typo3.Fusion.Renderer.git" },
+        { "type": "vcs", "url": "ssh://git@git.sitegeist.de:40022/neos-packages/Sitegeist.Eel.Standalone.git" },
+        { "type": "vcs", "url": "ssh://git@git.sitegeist.de:40022/neos-packages/Sitegeist.Fusion.Standalone.git" }
+    ],
+    "require": {
+        "sitegeist/typo3-fusion-renderer": "dev-master",
+        "sitegeist/eel-standalone": "dev-master",
+        "sitegeist/fusion-standalone": "dev-master"
+    }
+}
+```
+
 ## Contribution
 
 We will gladly accept contributions. Please send us pull requests.
