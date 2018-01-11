@@ -1,0 +1,124 @@
+{
+    "__prototypes": {
+        "Vendor.Site:Example": {
+            "__prototypeObjectName": "Neos.Fusion:Component",
+            "__meta": {
+                "styleguide": {
+                    "options": {
+                        "export": {
+                            "fluid": true
+                        }
+                    }
+                },
+                "propTypes": {
+                    "content": {
+                        "__eelExpression": "PropTypes.string",
+                        "__value": null,
+                        "__objectType": null
+                    },
+                    "attribute": {
+                        "__eelExpression": "PropTypes.string",
+                        "__value": null,
+                        "__objectType": null
+                    },
+                    "augmentedAttribute": {
+                        "__eelExpression": "PropTypes.string",
+                        "__value": null,
+                        "__objectType": null
+                    }
+                }
+            },
+            "content": null,
+            "attribute": "attribute",
+            "augmentedAttribute": null,
+            "renderer": {
+                "__objectType": "Neos.Fusion:Augmenter",
+                "__value": null,
+                "__eelExpression": null,
+                "augmentedAttribute": {
+                    "__eelExpression": "props.augmentedAttribute",
+                    "__value": null,
+                    "__objectType": null
+                },
+                "content": {
+                    "__objectType": "Neos.Fusion:Tag",
+                    "__value": null,
+                    "__eelExpression": null,
+                    "tagName": "div",
+                    "attributes": {
+                        "attribute": {
+                            "__eelExpression": "props.attribute",
+                            "__value": null,
+                            "__objectType": null
+                        }
+                    },
+                    "content": {
+                        "__eelExpression": "props.content",
+                        "__value": null,
+                        "__objectType": null
+                    }
+                }
+            },
+            "__prototypeChain": [
+                "Neos.Fusion:Component"
+            ]
+        },
+        "Neos.Fusion:Augmenter": {
+            "__prototypeObjectName": "Neos.Fusion:Component",
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\AugmenterImplementation"
+            },
+            "fallbackTagName": "div",
+            "content": {
+                "__eelExpression": "value",
+                "__value": null,
+                "__objectType": null
+            },
+            "__prototypeChain": [
+                "Neos.Fusion:Component"
+            ]
+        },
+        "Neos.Fusion:Tag": {
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\TagImplementation"
+            },
+            "attributes": {
+                "__objectType": "Neos.Fusion:Attributes",
+                "__value": null,
+                "__eelExpression": null
+            },
+            "omitClosingTag": false,
+            "selfClosingTag": false
+        },
+        "Neos.Fusion:Attributes": {
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\AttributesImplementation"
+            }
+        },
+        "Neos.Fusion:Component": {
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ComponentImplementation"
+            }
+        }
+    },
+    "renderPrototype_Vendor_Site_Example": {
+        "__objectType": "Vendor.Site:Example",
+        "__eelExpression": null,
+        "__value": null,
+        "content": {
+            "__objectType": null,
+            "__eelExpression": "content",
+            "__value": null
+        },
+        "attribute": {
+            "__objectType": null,
+            "__eelExpression": "attribute",
+            "__value": null
+        },
+        "augmentedAttribute": {
+            "__objectType": null,
+            "__eelExpression": "augmentedAttribute",
+            "__value": null
+        }
+    }
+}
