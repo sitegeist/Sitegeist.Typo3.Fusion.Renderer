@@ -17,6 +17,21 @@
 </fusion:render>
 ```
 
+For higher convenience the package comes with an abstract class `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\AbstractFusionComponentViewHelper` that allows to 
+easily implement convenient viewHelpers that use their attributes as interface. 
+
+```xml
+{namespace fusion=Sitegeist\Typo3\Fusion\Renderer\ViewHelpers}
+
+<fusion:exampleComponent attribute="example" content="This is some content"/>
+
+<fusion:exampleComponent attribute="example">
+    Fluid code that is passed to the component as content 
+</fusion:exampleComponent>
+```
+
+See `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\ExampleComponentViewHelper` as reference if you want to use this.
+
 ### Authors & Sponsors
 
 * Martin Ficzel - ficzel@sitegeist.de

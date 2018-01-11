@@ -1,10 +1,16 @@
 <?php
 namespace Sitegeist\Typo3\Fusion\Renderer\ViewHelpers;
 
-use Sitegeist\Fusion\Standalone\Core\Runtime;
-use Sitegeist\Typo3\Fusion\Renderer\Service\FusionRuntimeFactory;
+use Sitegeist\Typo3\Fusion\Renderer\Service\FusionService;
 
-class RenderViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic;
+use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3\CMS\Fluid\Core\ViewHelper\Facets\CompilableInterface;
+
+class RenderViewHelper extends AbstractViewHelper implements CompilableInterface{
+
+    use CompileWithRenderStatic;
 
     /**
      * As this ViewHelper renders HTML, the output must not be escaped.
@@ -24,25 +30,18 @@ class RenderViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelp
         $this->registerArgument('children', 'string', 'The property the children will be mapped to', FALSE, 'content');
     }
 
-    public function render() {
-
-        $fusionAst = $this->arguments['ast'];
-        $fusionPath = $this->arguments['path'];
-        $fusionContext = $this->arguments['context'];
-        $childrenProperty = $this->arguments['children'];
+    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
+    {
+        $fusionAst = $arguments['ast'];
+        $fusionPath = $arguments['path'];
+        $fusionContext = $arguments['context'];
+        $childrenProperty = $arguments['children'];
 
         if (is_array($fusionContext) && !array_key_exists($childrenProperty, $fusionContext)) {
-            $fusionContext[$childrenProperty] = $this->renderChildren();
+            $fusionContext[$childrenProperty] = $renderChildrenClosure();
         }
 
-        $fusionRuntimeFactory = FusionRuntimeFactory::getInstance();
-        $runtime = $fusionRuntimeFactory->createRuntime($fusionAst);
-
-        $runtime->pushContextArray($fusionContext);
-        $output = $runtime->render($fusionPath);
-        $runtime->popContext();
-
-        return $output;
+        return FusionService::renderFusion($fusionAst, $fusionPath, $fusionContext);
     }
 
 }

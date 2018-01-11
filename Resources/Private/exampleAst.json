@@ -63,6 +63,73 @@
                 "Neos.Fusion:Component"
             ]
         },
+        "Vendor.Site:CollectionExample": {
+            "__prototypeObjectName": "Neos.Fusion:Component",
+            "__meta": {
+                "styleguide": {
+                    "options": {
+                        "export": {
+                            "fluid": true
+                        }
+                    },
+                    "props": {
+                        "number": 10
+                    }
+                },
+                "propTypes": {
+                    "number": {
+                        "__eelExpression": "PropTypes.integer",
+                        "__value": null,
+                        "__objectType": null
+                    },
+                    "attribute": {
+                        "__eelExpression": "PropTypes.string",
+                        "__value": null,
+                        "__objectType": null
+                    }
+                }
+            },
+            "number": null,
+            "attribute": "attribute",
+            "renderer": {
+                "__objectType": "Neos.Fusion:Collection",
+                "__value": null,
+                "__eelExpression": null,
+                "collection": {
+                    "__eelExpression": "Array.range(1, props.number)",
+                    "__value": null,
+                    "__objectType": null
+                },
+                "itemName": "itemNumer",
+                "itemRenderer": {
+                    "__objectType": "Neos.Fusion:Tag",
+                    "__value": null,
+                    "__eelExpression": null,
+                    "tagName": "div",
+                    "attributes": {
+                        "attribute": {
+                            "__eelExpression": "props.attribute",
+                            "__value": null,
+                            "__objectType": null
+                        }
+                    },
+                    "content": {
+                        "__objectType": "Neos.Fusion:Array",
+                        "__value": null,
+                        "__eelExpression": null,
+                        "item_1": "Item ",
+                        "item_2": {
+                            "__eelExpression": "itemNumer",
+                            "__value": null,
+                            "__objectType": null
+                        }
+                    }
+                }
+            },
+            "__prototypeChain": [
+                "Neos.Fusion:Component"
+            ]
+        },
         "Neos.Fusion:Augmenter": {
             "__prototypeObjectName": "Neos.Fusion:Component",
             "__meta": {
@@ -95,9 +162,54 @@
                 "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\AttributesImplementation"
             }
         },
+        "Neos.Fusion:Collection": {
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\CollectionImplementation"
+            },
+            "itemName": "item",
+            "itemKey": "itemKey",
+            "iterationName": "iterator"
+        },
+        "Neos.Fusion:Array": {
+            "__meta": {
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ArrayImplementation"
+            }
+        },
         "Neos.Fusion:Component": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ComponentImplementation"
+                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ComponentImplementation",
+                "propTypes": {
+                    "__meta": {
+                        "context": {
+                            "Sysmex": {
+                                "__objectType": "Neos.Fusion:RawArray",
+                                "__value": null,
+                                "__eelExpression": null,
+                                "Components": {
+                                    "__objectType": "Neos.Fusion:RawArray",
+                                    "__value": null,
+                                    "__eelExpression": null,
+                                    "PropTypes": {
+                                        "__objectType": "Neos.Fusion:RawArray",
+                                        "__value": null,
+                                        "__eelExpression": null,
+                                        "image": {
+                                            "__eelExpression": "(            PropTypes.shape({                alt: PropTypes.string.isRequired,                sources: PropTypes.arrayOf(                    PropTypes.shape({                        media: PropTypes.string.isRequired,                        srcset: PropTypes.string.isRequired                    })                ),                fallback: PropTypes.string.isRequired            })        )",
+                                            "__value": null,
+                                            "__objectType": null
+                                        },
+                                        "color": {
+                                            "__eelExpression": "(            PropTypes.anyOf(                PropTypes.oneOf(Array.keys(constants.colors)),                PropTypes.oneOf([\"transparent\"])            )        )",
+                                            "__value": null,
+                                            "__objectType": null
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "packageKey": "Sysmex.MySysmex"
             }
         }
     },
@@ -118,6 +230,21 @@
         "augmentedAttribute": {
             "__objectType": null,
             "__eelExpression": "augmentedAttribute",
+            "__value": null
+        }
+    },
+    "renderPrototype_Vendor_Site_CollectionExample": {
+        "__objectType": "Vendor.Site:CollectionExample",
+        "__eelExpression": null,
+        "__value": null,
+        "number": {
+            "__objectType": null,
+            "__eelExpression": "number",
+            "__value": null
+        },
+        "attribute": {
+            "__objectType": null,
+            "__eelExpression": "attribute",
             "__value": null
         }
     }
