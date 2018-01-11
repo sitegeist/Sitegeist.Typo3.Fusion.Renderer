@@ -17,8 +17,10 @@
 </fusion:render>
 ```
 
+### Component-ViewHelpers for maximized Convenience
+
 For higher convenience the package comes with an abstract class `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\AbstractFusionComponentViewHelper` that allows to 
-easily implement convenient viewHelpers that use their attributes as interface. 
+easily implement convenient viewHelpers for fusion components that use the viewHelper-attributes as interface. 
 
 ```xml
 {namespace fusion=Sitegeist\Typo3\Fusion\Renderer\ViewHelpers}
