@@ -1,0 +1,17 @@
+{
+  "name": "sitegeist/typo3_fusion_renderer",
+  "description": "",
+  "type": "typo3-cms-extension",
+  "license": "GPL-3.0+",
+  "require": {
+    "typo3/cms-core": "~8.0|~9.0|dev-master",
+    "typo3fluid/fluid": "~2.4|dev-master",
+    "sitegeist/fusion-standalone": "*",
+    "sitegeist/eel-standalone": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sitegeist\\Typo3\\Fusion\\Renderer\\": "Classes/"
+    }
+  }
+}
