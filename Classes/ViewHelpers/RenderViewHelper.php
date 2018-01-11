@@ -22,7 +22,6 @@ class RenderViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelp
         $this->registerArgument('path', 'string', 'The path to render', TRUE);
         $this->registerArgument('context', 'array', 'The context that will be set', FALSE, []);
         $this->registerArgument('children', 'string', 'The property the children will be mapped to', FALSE, 'content');
-
     }
 
     public function render() {
