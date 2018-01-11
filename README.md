@@ -3,6 +3,8 @@
 ## Render fusion inside Typo3Fluid ViewHelpers
 
 ```xml
+{namespace fusion=Sitegeist\Typo3\Fusion\Renderer\ViewHelpers}
+
 <!-- render a fusion path with the given context -->
 <fusion:render ast="ext/typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{content: 'Example Content',  attribute:'example'}" />
 
