@@ -1,29 +1,40 @@
 <?php
 namespace Sitegeist\Typo3\Fusion\Renderer\Service;
 
-use Neos\Utility\Files;
-use Sitegeist\Eel\Standalone\Helper as EelHelper;
-
 class FusionService
 {
     /**
-     * @param $fusionAst
-     * @param $fusionPath
+     *
+     *
+     * @param string $content
+     * @param array $arguments
+     * @return string
+     */
+    static function userFunc($content, $arguments) {
+        $fusionAst = $arguments['ast'];
+        $fusionPath = $arguments['path'];
+
+        $fusionContext = $arguments['context.'];
+        if (!$fusionContext) {
+            $fusionContext = [];
+        }
+        if ($content) {
+            $fusionContext['content'] = $content;
+        }
+
+        return static::renderFusion($fusionAst, $fusionPath, $fusionContext);
+    }
+
+    /**
+     *
+     *
+     * @param string $fusionAst
+     * @param string $fusionPath
      * @param array $fusionContext
      * @return string
      */
     static function renderFusion($fusionAst, $fusionPath, $fusionContext = []) {
-
-        $defaultContextConfiguration = [
-            'Array' => EelHelper\ArrayHelper::class,
-            'Date' => EelHelper\DateHelper::class,
-            'Json' => EelHelper\JsonHelper::class,
-            'Math' => EelHelper\MathHelper::class,
-            'String' => EelHelper\StringHelper::class,
-            'Type' => EelHelper\TypeHelper::class
-        ];
-
-        $runtime = FusionRuntimeFactory::getInstance()->getRuntime($fusionAst, $defaultContextConfiguration);
+        $runtime = FusionRuntimeFactory::getInstance()->getRuntime($fusionAst);
 
         $runtime->pushContextArray($fusionContext);
         $output = $runtime->render($fusionPath);
