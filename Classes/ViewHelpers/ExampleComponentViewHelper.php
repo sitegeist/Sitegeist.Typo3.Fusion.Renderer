@@ -8,7 +8,7 @@ class ExampleComponentViewHelper extends AbstractFusionComponentViewHelper {
      *
      * @var string
      */
-    static protected $fusionAst = 'ext/typo3_fusion_renderer/Resources/Private/exampleAst.json';
+    static protected $fusionAst = 'EXT:typo3_fusion_renderer/Resources/Private/exampleAst.json';
 
     /**
      * The fusion path this viewHelper will render

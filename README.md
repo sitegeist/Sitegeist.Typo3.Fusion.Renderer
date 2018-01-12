@@ -6,18 +6,18 @@
 {namespace fusion=Sitegeist\Typo3\Fusion\Renderer\ViewHelpers}
 
 <!-- render a fusion path with the given context -->
-<fusion:render ast="ext/typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{content: 'Example Content',  attribute:'example'}" />
+<fusion:render ast="EXT:typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{content: 'Example Content',  attribute:'example'}" />
 
 <!-- pass fluid-children to a component as prop -->
-<fusion:render ast="ext/typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{attribute:'example'}" children="content">
+<fusion:render ast="EXT:typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{attribute:'example'}" children="content">
     this is fluid inside a fusion component
     <f:for each="{1:1,2:2,3:3}" as="item">
-        <fusion:render ast="ext/typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{content: 'Item {item}',  attribute:'example'}" />
+        <fusion:render ast="EXT:typo3_fusion_renderer/Resources/Private/exampleAst.json" path="renderPrototype_Vendor_Site_Example" context="{content: 'Item {item}',  attribute:'example'}" />
     </f:for>
 </fusion:render>
 ```
 
-### Component-ViewHelpers for maximized Convenience
+### Typo3Fluid Component-ViewHelpers for maximized Convenience
 
 For higher convenience the package comes with an abstract class `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\AbstractFusionComponentViewHelper` that allows to 
 easily implement convenient viewHelpers for fusion components that use the viewHelper-attributes as interface. 
@@ -31,8 +31,20 @@ easily implement convenient viewHelpers for fusion components that use the viewH
     Fluid code that is passed to the component as content 
 </fusion:exampleComponent>
 ```
-
 See `\Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\ExampleComponentViewHelper` as reference if you want to use this.
+
+### TypoScript Integration
+
+The fusionRenderer can also be integrated as userFunc via TypoScript.
+
+```
+10 = USER
+10.userFunc = Sitegeist\Typo3\Fusion\Renderer\Service\FusionService->userFunc
+10.ast = EXT:typo3_fusion_renderer/Resources/Private/exampleAst.json
+10.path = renderPrototype_Vendor_Site_Example
+10.context.content = TypoScript sucks  
+10.context.attribute = ts-attribute
+```
 
 ### Authors & Sponsors
 
