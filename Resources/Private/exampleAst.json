@@ -133,7 +133,7 @@
         "Neos.Fusion:Augmenter": {
             "__prototypeObjectName": "Neos.Fusion:Component",
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\AugmenterImplementation"
+                "class": "Neos\\Fusion\\FusionObjects\\AugmenterImplementation"
             },
             "fallbackTagName": "div",
             "content": {
@@ -147,7 +147,7 @@
         },
         "Neos.Fusion:Tag": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\TagImplementation"
+                "class": "Neos\\Fusion\\FusionObjects\\TagImplementation"
             },
             "attributes": {
                 "__objectType": "Neos.Fusion:Attributes",
@@ -159,12 +159,12 @@
         },
         "Neos.Fusion:Attributes": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\AttributesImplementation"
+                "class": "Neos\\Fusion\\FusionObjects\\AttributesImplementation"
             }
         },
         "Neos.Fusion:Collection": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\CollectionImplementation"
+                "class": "Neos\\Fusion\\FusionObjects\\CollectionImplementation"
             },
             "itemName": "item",
             "itemKey": "itemKey",
@@ -172,12 +172,12 @@
         },
         "Neos.Fusion:Array": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ArrayImplementation"
+                "class": "Neos\\Fusion\\FusionObjects\\ArrayImplementation"
             }
         },
         "Neos.Fusion:Component": {
             "__meta": {
-                "class": "Sitegeist\\Fusion\\Standalone\\FusionObjects\\ComponentImplementation",
+                "class": "Neos\\Fusion\\FusionObjects\\ComponentImplementation",
                 "propTypes": {
                     "__meta": {
                         "context": {
