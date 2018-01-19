@@ -72,6 +72,28 @@ To install this package add the following configuttaion to the `composer.json` a
 }
 ```
 
+
+### ViewHelper Generator
+
+The package contains a yeoman-generator to create component viewHelpers based on an existing astFile.
+**!!!ATTENTION: The generator will completely overwrite the targeted package!!!**
+
+```
+yo ./typo3conf/ext/typo3_fusion_renderer/YeomanGenerators/generator-typo3-fusion-renderer/generators/app/index.js --ast __astAsJsonFile__ --name __composer_name__ --targetDirectory __target_extension_dir__
+
+``` 
+
+If yeoman is not yet present on your system follow these steps:
+
+```
+# install yeoman
+npm install -g yo
+
+# install dependencies of the local generator-typo3-fusion-renderer in ext:typo3_fusion_renderer
+cd ./typo3conf/ext/typo3_fusion_renderer/YeomanGenerators/generator-typo3-fusion-renderer && yarn
+```
+
+
 ## Contribution
 
 We will gladly accept contributions. Please send us pull requests.

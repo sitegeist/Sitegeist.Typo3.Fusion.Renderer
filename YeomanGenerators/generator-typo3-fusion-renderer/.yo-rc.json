@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Martin Ficzel",
+      "authorEmail": "ficzel@sitegeist.de",
+      "authorUrl": ""
+    }
+  }
+}

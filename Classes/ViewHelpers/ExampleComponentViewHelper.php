@@ -15,7 +15,7 @@ class ExampleComponentViewHelper extends AbstractFusionComponentViewHelper {
      *
      * @var string
      */
-    static protected $fusionPath = 'renderPrototype_Vendor_Site_Example';
+    static protected $fusionPath = 'render_Vendor_Site_Example';
 
     /**
      * Arguments Initialization

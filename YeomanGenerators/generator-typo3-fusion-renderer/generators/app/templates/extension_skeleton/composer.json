@@ -1,0 +1,14 @@
+{
+  "name": "<%= name %>",
+  "description": "",
+  "type": "typo3-cms-extension",
+  "license": "GPL-3.0+",
+  "require": {
+    "sitegeist/typo3-fusion-renderer": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "<%= extensionNamespace.replace(/[\\]/gm, '\\\\') %>\\": "Classes/"
+    }
+  }
+}
