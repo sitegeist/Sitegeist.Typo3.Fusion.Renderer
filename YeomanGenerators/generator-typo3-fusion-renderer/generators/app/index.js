@@ -23,7 +23,7 @@ module.exports = class extends Generator {
     }
 
     const name = this.options.name
-    const extensionKey = name.split('/').pop();
+    const extensionKey = name.split('/').pop().replace(/[\-]/gm,'_');
     const extensionNamespace = name.replace(/[\-\/]/gm, "\\");
     const astFile = 'Resources/Private/FusionAst.json';
 
@@ -67,7 +67,7 @@ module.exports = class extends Generator {
 
       this.fs.copyTpl(
         this.templatePath('extension_skeleton/Classes/ViewHelpers/ViewHelper.php'),
-        this.destinationPath('Classes/ViewHelpers/' + viewHelperInformation['classPath'] + 'ViewHelper..php'),
+        this.destinationPath('Classes/ViewHelpers/' + viewHelperInformation['classPath'] + 'ViewHelper.php'),
         templateVars
       )
     });

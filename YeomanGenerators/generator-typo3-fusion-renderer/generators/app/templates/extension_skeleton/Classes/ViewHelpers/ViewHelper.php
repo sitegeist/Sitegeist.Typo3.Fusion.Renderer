@@ -1,5 +1,5 @@
 <?php
-namespace <%= extensionNamespace %>\<%= viewHelperNamespace %>;
+namespace <%= extensionNamespace %>\ViewHelpers\<%= viewHelperNamespace %>;
 
 use \Sitegeist\Typo3\Fusion\Renderer\ViewHelpers\AbstractFusionComponentViewHelper;
 
