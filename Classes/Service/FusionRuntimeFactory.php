@@ -2,8 +2,16 @@
 namespace Sitegeist\Typo3\Fusion\Renderer\Service;
 
 use Sitegeist\Fusion\Standalone\Core\Runtime;
+use Sitegeist\Eel\Standalone\Utility as EelUtility;
+use Sitegeist\Eel\Standalone\CompilingEvaluator;
+
 use Neos\Utility\Files;
 use Neos\Utility\Arrays;
+
+use Neos\Cache\EnvironmentConfiguration;
+use Neos\Cache\CacheFactory;
+use Neos\Cache\Backend\FileBackend;
+use Neos\Cache\Frontend\PhpFrontend;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -62,16 +70,28 @@ class FusionRuntimeFactory
             }
 
             //
-            // create eel configuration from conf vars
+            // create eel cache and evaluator
             //
-            Files::createDirectoryRecursively(PATH_site . 'typo3temp/typo3_fusion_renderer');
             $eelCacheDirectory = PATH_site . 'typo3temp/typo3_fusion_renderer/eel';
+            Files::createDirectoryRecursively($eelCacheDirectory);
+            $environmentConfiguration = new EnvironmentConfiguration(
+                'standaloneFusion',
+                $eelCacheDirectory
+            );
+            $cacheFactory = new CacheFactory($environmentConfiguration);
+            $eelCache = $cacheFactory->create('eelEvaluatorCache', PhpFrontend::class, FileBackend::class);
+            $eelEvaluator = new CompilingEvaluator($eelCache);
+
+            //
+            // create eel context
+            //
             $eelHelperConfiguration = $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_fusion_renderer']['eelHelperImplementations'] ?: [];
+            $context = EelUtility::getDefaultContextVariables($eelHelperConfiguration);
 
             //
             // create runtime
             //
-            $runtime = new Runtime($ast, $eelCacheDirectory, $eelHelperConfiguration);
+            $runtime = new Runtime($ast, $eelEvaluator, $context);
             $this->runtimes[$astFile] = $runtime;
         }
         return $this->runtimes[$astFile];
