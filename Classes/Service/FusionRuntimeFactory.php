@@ -8,10 +8,7 @@ use Sitegeist\Eel\Standalone\CompilingEvaluator;
 use Neos\Utility\Files;
 use Neos\Utility\Arrays;
 
-use Neos\Cache\EnvironmentConfiguration;
-use Neos\Cache\CacheFactory;
-use Neos\Cache\Backend\FileBackend;
-use Neos\Cache\Frontend\PhpFrontend;
+use Symfony\Component\Cache\Simple\FilesystemCache;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -74,13 +71,8 @@ class FusionRuntimeFactory
             //
             $eelCacheDirectory = PATH_site . 'typo3temp/typo3_fusion_renderer/eel';
             Files::createDirectoryRecursively($eelCacheDirectory);
-            $environmentConfiguration = new EnvironmentConfiguration(
-                'standaloneFusion',
-                $eelCacheDirectory
-            );
-            $cacheFactory = new CacheFactory($environmentConfiguration);
-            $eelCache = $cacheFactory->create('eelEvaluatorCache', PhpFrontend::class, FileBackend::class);
-            $eelEvaluator = new CompilingEvaluator($eelCache);
+            $cache = new FilesystemCache('eel', 0, $eelCacheDirectory);
+            $eelEvaluator = new CompilingEvaluator($cache);
 
             //
             // create eel context

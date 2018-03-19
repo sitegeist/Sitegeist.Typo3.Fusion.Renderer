@@ -10,7 +10,6 @@
         "sitegeist/eel-standalone": "*",
         "neos/utility-files": "*",
         "neos/utility-arrays": "*",
-        "neos/cache": "*",
         "symfony/cache": "*"
     },
     "autoload": {
